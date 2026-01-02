@@ -277,14 +277,14 @@ const Properties = () => {
           <div className="relative w-full h-full flex items-center justify-center p-0 md:p-4">
             {isCurrentMediaVideo ? (
               <video
-                src={safeMediaSrc(currentMediaSrc)}
+                src={currentMediaSrc}
                 controls
                 className="h-auto max-h-[70%] w-auto max-w-[70%] object-contain"
                 onClick={(e) => e.stopPropagation()}
               />
             ) : (
               <img
-                src={safeMediaSrc(currentMediaSrc)}
+                src={currentMediaSrc}
                 alt={selectedProperty.title}
                 className="w-full h-full object-contain object-center max-h-screen max-w-screen"
               />
