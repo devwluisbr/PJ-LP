@@ -60,14 +60,44 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deploy na Vercel
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- Importar repositório GitHub: devwluisbr/PJ-LP
+- Configure:
+  - Root Directory: gyn-premium-living-main
+  - Framework Preset: Vite
+  - Build Output: dist (já definido em vercel.json)
+- Variáveis de Ambiente (Settings → Environment Variables):
+  - META_PIXEL_ID = 1965047910721645
+  - META_ACCESS_TOKEN = token da CAPI (Gerenciador de Eventos → API de Conversões → Gerar token)
+  - VITE_SUPABASE_URL = URL do projeto Supabase
+  - VITE_SUPABASE_PUBLISHABLE_KEY = chave pública (anon) do Supabase
+- Clique em Deploy. Após o build, valide a URL de preview, navegação e formulário.
 
-## Can I connect a custom domain to my Lovable project?
+## Domínio personalizado
 
-Yes, you can!
+- Em Settings → Domains, adicione acchaves.com.br
+- Se aparecer “Invalid Configuration”, escolha:
+  - Nameservers:
+    - ns1.vercel-dns.com
+    - ns2.vercel-dns.com
+  - Modo Avançado (A + CNAME) no Registro.br:
+    - A (apex @) → 76.76.21.21
+    - CNAME (www) → cname.vercel-dns.com
+- Após propagar, defina acchaves.com.br como Primary Domain.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Validações
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- SEO canônico aponta para o domínio: [index.html](index.html)
+- Pixel atualizado com PageView e noscript: [index.html](index.html)
+- Backend CAPI lê variáveis: [api/meta-events.ts](api/meta-events.ts)
+- SPA rewrites prontos: [vercel.json](vercel.json)
+
+## Checklist
+
+- Importar repo PJ-LP na Vercel
+- Adicionar variáveis e redeploy
+- Adicionar domínio acchaves.com.br
+- Apontar DNS (Nameservers ou A/CNAME)
+- Verificar SSL emitido e página abrindo
+- Testar formulário: verificar Lead no Supabase e evento “Lead” no Pixel/CAPI

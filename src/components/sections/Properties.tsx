@@ -138,7 +138,7 @@ const Properties = () => {
             <span className="text-gradient-gold">Selecionados</span>
           </h2>
           <p className="hidden md:block text-cream-muted text-lg font-light leading-relaxed">
-            Uma seleção cuidadosa dos melhores empreendimentos de alto padrão em Goiânia
+            Uma seleção cuidadosa dos melhores empreendimentos de médio e alto padrão em Goiânia
           </p>
         </div>
 
