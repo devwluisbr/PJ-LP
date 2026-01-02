@@ -2,7 +2,8 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID  
+**Repositório GitHub**: https://github.com/devwluisbr/meuprojetoatual
 
 ## How can I edit this code?
 
@@ -62,7 +63,7 @@ This project is built with:
 
 ## Deploy na Vercel
 
-- Importar repositório GitHub: devwluisbr/PJ-LP
+- Importar repositório GitHub: devwluisbr/meuprojetoatual
 - Configure:
   - Root Directory: gyn-premium-living-main
   - Framework Preset: Vite
