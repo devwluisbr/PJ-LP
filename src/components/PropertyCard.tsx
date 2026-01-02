@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { Play, Maximize, BedDouble, Bath, Car, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
-import { safeMediaSrc } from "@/lib/utils";
 
 export interface Property {
   images: string[];
@@ -51,12 +50,11 @@ export function PropertyCard({ property, onOpen }: PropertyCardProps) {
                   {isVideo(src) ? (
                     <div className="relative h-full w-full bg-black flex items-center justify-center">
                        <video
-                          src={safeMediaSrc(src)}
+                          src={src}
                           className="h-auto max-h-[96%] w-auto max-w-[96%] object-contain pointer-events-none"
                           muted
                           playsInline
                           preload="auto"
-                          onError={() => { /* ignore errors in dev */ }}
                         />
                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <button 
@@ -70,10 +68,9 @@ export function PropertyCard({ property, onOpen }: PropertyCardProps) {
                     </div>
                   ) : (
                     <img
-                      src={safeMediaSrc(src)}
+                      src={src}
                       alt={property.title}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      onError={() => { /* ignore errors in dev */ }}
                     />
                   )}
                </div>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
-import { safeMediaSrc } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { BedDouble, Bath, Car, Maximize, Calendar, X } from "lucide-react";
@@ -182,20 +181,18 @@ const Properties = () => {
                 >
                   {isCurrentMediaVideo ? (
                     <video
-                      src={safeMediaSrc(currentMediaSrc)}
+                      src={currentMediaSrc}
                       controls
                       className="h-auto max-h-[50%] w-auto max-w-[50%] object-contain"
                       onClick={(e) => e.stopPropagation()}
                       onLoadedData={() => setImageLoading(false)}
-                      onError={() => setImageLoading(false)}
                     />
                   ) : (
                     <img
-                      src={safeMediaSrc(currentMediaSrc)}
+                      src={currentMediaSrc}
                       alt={selectedProperty.title}
                       className="w-full h-full object-contain object-center bg-black"
                       onLoad={() => setImageLoading(false)}
-                      onError={() => setImageLoading(false)}
                     />
                   )}
                 </div>

@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { cn, safeMediaSrc } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface ImageLightboxCarouselProps {
@@ -37,22 +37,20 @@ const ImageLightboxCarousel = ({ images, open, onOpenChange, title }: ImageLight
                   <CarouselItem key={index} className="basis-full">
                     {src.toLowerCase().endsWith(".mp4") ? (
                       <video
-                        src={safeMediaSrc(src)}
+                        src={src}
                         controls
                         muted={false}
                         playsInline
                         preload="metadata"
                         className="w-full h-auto max-h-[70vh] object-contain bg-black"
-                        onError={() => { /* ignore errors in dev */ }}
                       />
                     ) : (
                       <img
-                        src={safeMediaSrc(src)}
+                        src={src}
                         alt={title ? `${title} - ${index + 1}` : `Imagem ${index + 1}`}
                         className="w-full h-auto max-h-[70vh] object-contain bg-black"
                         loading="eager"
                         decoding="async"
-                        onError={() => { /* ignore errors in dev */ }}
                       />
                     )}
                   </CarouselItem>
