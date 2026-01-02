@@ -8,6 +8,7 @@ import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import { useEffect, useState } from "react";
+import MetaPixel from "@/components/MetaPixel";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,9 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        {consentMarketing && import.meta.env.VITE_META_PIXEL_ID && (
+          <MetaPixel pixelId={import.meta.env.VITE_META_PIXEL_ID as string} />
+        )}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

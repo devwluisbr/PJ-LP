@@ -69,7 +69,8 @@ This project is built with:
   - Framework Preset: Vite
   - Build Output: dist (já definido em vercel.json)
 - Variáveis de Ambiente (Settings → Environment Variables):
-  - META_PIXEL_ID = 1965047910721645
+  - META_PIXEL_ID = ID do pixel (servidor, usado por /api/meta-events)
+  - VITE_META_PIXEL_ID = ID do pixel (cliente, injetado via React após consentimento)
   - META_ACCESS_TOKEN = token da CAPI (Gerenciador de Eventos → API de Conversões → Gerar token)
   - VITE_SUPABASE_URL = URL do projeto Supabase
   - VITE_SUPABASE_PUBLISHABLE_KEY = chave pública (anon) do Supabase
