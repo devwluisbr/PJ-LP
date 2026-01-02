@@ -1,4 +1,4 @@
-import whatsappLogo from "@/assets/Casa Aurora/logo whatsaap.png";
+import whatsappLogo from "@/assets/Casa Aurora/símbolo do WhatsApp .png";
 
 const WhatsAppButton = () => {
   const phoneNumber = "5562981252950";
