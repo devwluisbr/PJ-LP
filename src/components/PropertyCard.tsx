@@ -36,7 +36,6 @@ export function PropertyCard({ property, onOpen }: PropertyCardProps) {
   }, [api]);
 
   const isVideo = (src: string) => src.toLowerCase().endsWith(".mp4");
-  const firstImagePoster = property.images.find((s) => !isVideo(s)) ?? property.images[0];
 
   return (
     <div className="group relative h-[500px] w-full overflow-hidden rounded-xl bg-charcoal border border-white/10 shadow-2xl transition-all duration-500 hover:border-primary/50 hover:shadow-primary/10 hover:-translate-y-1">
@@ -51,10 +50,12 @@ export function PropertyCard({ property, onOpen }: PropertyCardProps) {
                >
                   {isVideo(src) ? (
                     <div className="relative h-full w-full bg-black flex items-center justify-center">
-                       <img
-                          src={safeMediaSrc(firstImagePoster)}
-                          alt={property.title}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                       <video
+                          src={safeMediaSrc(src)}
+                          className="h-auto max-h-[96%] w-auto max-w-[96%] object-contain pointer-events-none"
+                          muted
+                          playsInline
+                          preload="auto"
                           onError={() => { /* ignore errors in dev */ }}
                         />
                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
